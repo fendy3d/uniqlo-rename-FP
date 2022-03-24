@@ -52,14 +52,14 @@ for _, _, files in os.walk(pathToPdfs):
             
             month = reformatMonth(list_of_texts[26].split(', ')[-1].split(' ')[1])
             invoice_number = list_of_texts[28].replace('/','-')
-            entity = list_of_texts[3].split(': ')[-1]
+            entity = list_of_texts[8].split(': ')[-1]
             tax_invoice_number = list_of_texts[1].split(': ')[-1]
 
             # printText(list_of_texts)
             old_file_directory = pathToPdfs + filename
             new_name = month + '_' + invoice_number + '_' + entity + '_' + tax_invoice_number+'.pdf'
             new_file_directory = pathToPdfs + new_name
-            
+
             pdf.close()
             
             os.rename(old_file_directory, new_file_directory)
